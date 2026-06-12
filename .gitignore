@@ -1,0 +1,28 @@
+# Entornos Python y Jupyter Notebooks
+
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# Archivos temporales de LaTeX
+
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.lol
+*.synctex.gz
+*.bcf
+*.run.xml
+
+.DS_Store
+Thumbs.db
+
+lol/

@@ -1,0 +1,76 @@
+% Documento:    Archivo principal
+% Versión:      8.4.4 (02/12/2025)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/informe]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% CREACIÓN DEL DOCUMENTO
+\documentclass[
+	spanish, % Idioma: spanish, english, etc.
+	letterpaper, oneside
+]{article}
+
+% INFORMACIÓN DEL DOCUMENTO
+\def\documenttitle {Navegación Autónoma en Laberintos}
+\def\documentsubtitle {}
+\def\documentsubject {Depth-First Search}
+
+\def\documentauthor {Enrique Lisandro Flores Brito}
+\def\coursename {Búsqueda de soluciones e Inferencia Bayesiana}
+\def\coursecode {}
+
+\def\universityname {Universidad Autónoma del Estado de Morelos}
+\def\universityfaculty {Instituto de Investigación en Ciencias Básicas y Aplicadas}
+\def\universitydepartment {Centro de Investigación en Ciencias - CInC}
+\def\universitydepartmentimage {logos}
+\def\universitydepartmentimagecfg {height=1.57cm}
+\def\universitylocation {}
+
+% INTEGRANTES, PROFESORES Y FECHAS
+\def\authortable {
+	\begin{tabular}{ll}
+		Alumno:
+		& \begin{tabular}[t]{l}
+			Enrique Lisandro Flores Brito
+		\end{tabular} \\
+		Profesor:
+		& \begin{tabular}[t]{l}
+			Jorge Hermosillo Valadez
+		\end{tabular} \\
+		\multicolumn{2}{l}{11 de Junio de 2026} \\
+		\multicolumn{2}{l}{\universitylocation}
+	\end{tabular}
+}
+
+% IMPORTACIÓN DEL TEMPLATE
+\input{template}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% INICIO DE PÁGINAS
+\begin{document}
+
+% PORTADA
+\templatePortrait
+
+% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
+\templatePagecfg
+
+% TABLA DE CONTENIDOS - ÍNDICE
+\templateIndex
+
+% CONFIGURACIONES FINALES
+\templateFinalcfg
+
+% ======================= INICIO DEL DOCUMENTO =======================
+
+\input{contenido} % Ejemplo, se puede borrar
+
+% FIN DEL DOCUMENTO
+\end{document}
