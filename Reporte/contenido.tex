@@ -14,7 +14,7 @@
 % ------------------------------------------------------------------------------
 \section{Descripción del proyecto}
 El presente trabajo aborda la resolución de un problema de búsqueda de rutas en entornos discretos mediante la implementación de un agente inteligente. Específicamente,
-se desarrolló un algoritmo de Búsqueda en Grafo Primero en Profundidad (DFS, por sus siglas en inglés) para encontrar un camino válido desde un punto de inicio hasta
+se desarrolló un algoritmo de Búsqueda Primero en Profundidad (DFS, por sus siglas en inglés) para encontrar un camino válido desde un punto de inicio hasta
 una meta dentro de un laberinto generado de forma procedimental\footnote{El código fuente completo
 de la implementación en Python, así como las visualizaciones, se encuentran disponibles en el repositorio:
 \url{https://github.com/enriqfl/Navegacion-Autonoma-en-Laberintos}}
@@ -24,7 +24,7 @@ de la implementación en Python, así como las visualizaciones, se encuentran di
 
 El problema se origina en el campo de la Inteligencia Artificial, específicamente en el diseño de agentes racionales y algoritmos de búsqueda no informada. La navegación en laberintos es un problema clásico que sirve como abstracción para situaciones más complejas del mundo real, como la planificación de trayectorias en robótica, el enrutamiento de paquetes en redes de computadoras o la resolución de problemas de logística.
 
-En este contexto, un laberinto representa un entorno estático y determinista donde un agente debe tomar decisiones secuenciales (moverse arriba, abajo, izquierda o derecha) para transitar de un estado inicial a un estado objetivo, evitando obstáculos estructurales (paredes). 
+En este contexto, un laberinto representa un entorno estático y determinista donde un agente debe tomar decisiones secuenciales (moverse arriba, abajo, izquierda o derecha) para transitar de un estado inicial a un estado objetivo, evitando obstáculos estructurales (paredes).
 
 \subsubsection{Visualización}
 El entorno se modela como una cuadrícula bidimensional (grid) donde las celdas de espacio libre y las paredes determinan la topología del problema. Gráficamente, el algoritmo de generación crea un patrón de pasillos laberínticos mediante la técnica de "búsqueda en profundidad aleatoria" (Randomized DFS), garantizando que siempre exista al menos un camino posible hacia la meta.
@@ -35,7 +35,7 @@ El entorno se modela como una cuadrícula bidimensional (grid) donde las celdas 
 \begin{figure}[htbp]
     \centering
     % NOTA PARA EL USUARIO: Reemplaza 'img/tu_laberinto_aqui.png' con una captura del laberinto generado en tu notebook.
-    \includegraphics[width=0.6\textwidth]{img/generacion_inicial.png} 
+    \includegraphics[width=0.6\textwidth]{img/generacion_inicial.png}
     \caption*{Representación del laberinto generado. Las áreas oscuras representan paredes y el rastro indica la exploración del agente.}
     \label{fig:maze_representation}
 \end{figure}
@@ -58,7 +58,7 @@ Dado un conjunto de datos espaciales representados como una matriz binaria (dond
 
 % SUB-SECCIÓN
 \subsection{Definición de un estado del problema}
-Un estado es una estructura de datos que representa la ubicación del agente dentro del entorno en un momento dado. 
+Un estado es una estructura de datos que representa la ubicación del agente dentro del entorno en un momento dado.
 
 Matemáticamente, debido a que el laberinto se mapea sobre una cuadrícula, un estado $E$ se define de manera precisa como una 2-tupla de números enteros que corresponden a los índices de fila y columna de la matriz del entorno:
 $$E := (r, c) \text{ con } r, c \in \mathbb{Z}^{+}$$
@@ -86,20 +86,20 @@ Al evaluar las acciones disponibles en un estado válido, el algoritmo construye
 \clearpage
 \section{Metodología}
 
-La estrategia implementada para solucionar el problema es la \textbf{Búsqueda en Grafo Primero en Profundidad} (\textit{Depth-First Graph Search}). Este algoritmo no informado expande siempre el nodo más profundo en la frontera de búsqueda actual. La metodología se desglosa en los siguientes componentes:
+La estrategia implementada para solucionar el problema es la \textbf{Búsqueda Primero en Profundidad} (\textit{Depth-First Search}). Este algoritmo no informado expande siempre el nodo más profundo en la frontera de búsqueda actual. La metodología se desglosa en los siguientes componentes:
 
 \begin{itemize}
     \item \textbf{Estructura LIFO (Pila):} La frontera de exploración se administra utilizando una estructura de datos tipo Pila (\textit{Stack}). Esto asegura que el último nodo descubierto sea el primero en ser expandido, provocando que el agente siga un camino hasta encontrar un callejón sin salida o la meta.
-    
+
     \item \textbf{Control de estados repetidos (Gráfica):} Para evitar bucles infinitos causados por caminos cíclicos o la reversión inmediata de movimientos (por ejemplo, ir al Norte y luego al Sur repetidamente), se implementó un registro en memoria (conjunto \texttt{visited}). Si un estado ya fue explorado, el algoritmo omite su re-expansión.
-    
+
     \item \textbf{Expansión y Evaluación:} En cada iteración, el agente extrae un nodo de la frontera, lo marca como visitado y verifica si cumple la condición de meta. Si no es la meta, genera todos los estados sucesores válidos (evitando paredes) y los añade a la frontera.
-    
+
     \item \textbf{Construcción del camino:} Una vez que el estado extraído coincide con el estado meta, el algoritmo recupera la ruta óptima encontrada recorriendo recursivamente los nodos desde el objetivo hasta la raíz (estado inicial) utilizando el atributo \texttt{parent} de cada nodo.
 \end{itemize}
 
 \section{Resultados}
-Al ejecutar el modelo utilizando una dimensión paramétrica de $m=10$ y $n=10$, el algoritmo de búsqueda DFS logró resolver el laberinto de manera determinista. 
+Al ejecutar el modelo utilizando una dimensión paramétrica de $m=10$ y $n=10$, el algoritmo de búsqueda DFS logró resolver el laberinto de manera determinista.
 
 \subsection{Comportamiento y análisis visual}
 El rastro de solución fue procesado mediante \texttt{matplotlib.animation} para documentar el progreso del agente paso a paso. Se observa cómo el agente toma decisiones basadas en el último nodo disponible, explorando en profundidad cada pasillo antes de hacer un retroceso (\textit{backtracking}) cuando se encuentra de frente con una obstrucción perimetral.
