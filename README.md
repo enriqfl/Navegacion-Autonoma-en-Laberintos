@@ -28,7 +28,7 @@ Para ejecutar el código localmente, asegúrate de contar con Python 3 y las sig
 ```bash
 pip install numpy matplotlib
 
-git clone [https://github.com/enriqfl/Navegacion-Autonoma-en-Laberintos.git](https://github.com/enriqfl/Navegacion-Autonoma-en-Laberintos.git)
+git clone https://github.com/enriqfl/Navegacion-Autonoma-en-Laberintos.git
 ```
 
-Navega a la carpeta del notebook y ejecuta Agente.ipynb en tu entorno preferido (Jupyter Lab, VSCode, Google Colab).
+Navega a la carpeta del notebook y ejecuta **`Agente.ipynb`** en tu entorno preferido (Jupyter Lab, VSCode, Google Colab).
